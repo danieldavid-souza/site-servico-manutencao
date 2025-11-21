@@ -1,4 +1,13 @@
-/* Reset Básico e Fontes */
+/* Estilos Globais e Mobile First */
+:root {
+    --primary-color: #2c3e50; /* Azul escuro */
+    --secondary-color: #3498db; /* Azul claro */
+    --text-color: #333;
+    --background-color: #ecf0f1;
+    --white-color: #ffffff;
+    --border-radius: 8px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,245 +15,248 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* Navbar */
+main {
+    flex-grow: 1;
+    padding: 1rem;
+}
+
+section {
+    background: var(--white-color);
+    margin: 1rem auto;
+    padding: 2rem 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 1200px;
+}
+
+h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.section-description {
+    text-align: center;
+    max-width: 800px;
+    margin: -1rem auto 3rem auto;
+    color: #555;
+}
+
+/* Header e Navegação */
 .navbar {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: var(--primary-color);
+    padding: 1rem 1.5rem;
+    flex-wrap: wrap; /* Permite que o menu quebre a linha */
 }
 
-.navbar .logo {
-    color: #fff;
+.logo {
+    color: var(--white-color);
     text-decoration: none;
-    font-size: 1.5rem;
     font-weight: bold;
+    font-size: 1.5rem;
 }
 
 .nav-menu {
     list-style: none;
-    display: flex;
+    display: none; /* Escondido por padrão em mobile */
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.nav-menu.active {
+    display: flex; /* Mostra o menu quando a classe 'active' é adicionada via JS */
 }
 
 .nav-menu li {
-    margin-left: 20px;
+    padding: 0.75rem 0;
 }
 
 .nav-menu a {
-    color: #fff;
+    color: var(--white-color);
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-size: 1.1rem;
+    transition: color 0.3s;
 }
 
 .nav-menu a:hover {
-    color: #007bff;
+    color: var(--secondary-color);
 }
 
-/* Hero Section */
-.hero {
-    background: linear-gradient(rgba(51, 51, 51, 0.7), rgba(51, 51, 51, 0.7)), url('../img/hero-background.jpg') no-repeat center center/cover;
-    color: #fff;
-    height: 60vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.hamburger {
+    display: block; /* Visível por padrão em mobile */
+    cursor: pointer;
+    background: none;
+    border: none;
 }
 
-.hero-content h1 {
-    font-size: 2.8rem;
-    margin-bottom: 1rem;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--white-color);
+    transition: all 0.3s ease-in-out;
 }
 
 /* Botões */
 .btn {
     display: inline-block;
-    background-color: #007bff;
-    color: #fff;
-    padding: 12px 24px;
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
     text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
     border: none;
     cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    margin: 0.25rem; /* Espaçamento para evitar quebra em telas pequenas */
 }
 
 .btn:hover {
-    background-color: #0056b3;
+    background-color: #2980b9;
 }
 
-.btn-secondary {
-    background-color: #6c757d;
-}
-
-.btn-secondary:hover {
-    background-color: #5a6268;
-}
-
-/* Seções */
-main section {
-    padding: 4rem 2rem;
+/* Hero Section */
+.hero {
     text-align: center;
+    padding: 3rem 1rem;
+}
+.hero-content .btn {
+    margin-bottom: 0.5rem;
 }
 
-main section h2 {
-    font-size: 2.2rem;
-    margin-bottom: 2rem;
-    color: #333;
-}
-
-/* Visão Geral dos Serviços */
+/* Cards de Serviço */
 .services-container {
     display: flex;
-    justify-content: center;
-    gap: 20px;
     flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
 }
 
 .service-card {
     background: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 250px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-
-.service-card h3 {
-    margin-bottom: 1rem;
-    color: #007bff;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    flex: 1 1 300px; /* Flexbox para responsividade */
+    max-width: 350px;
 }
 
 /* Formulário de Contato */
-.contact-form-section {
-    background-color: #e9ecef;
-}
-
-#home-contact-form {
-    max-width: 600px;
-    margin: 0 auto;
+.contact-form-section form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-#home-contact-form input,
-#home-contact-form textarea {
+.contact-form-section input,
+.contact-form-section textarea,
+.contact-form-section select {
     width: 100%;
-    padding: 12px;
+    padding: 0.75rem;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-family: inherit;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
 }
 
 /* Footer */
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--primary-color);
+    color: var(--white-color);
     text-align: center;
     padding: 1.5rem;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    margin-top: auto;
 }
 
-/* Estilos para a Página de Serviços */
-.service-detail-card {
-    background: #fff;
-    margin-bottom: 2rem;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: left;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+/* Tabela de Preços Responsiva */
+.table-container {
+    overflow-x: auto; /* Permite rolagem horizontal em telas pequenas */
+    margin: 2rem 0;
 }
 
-.service-detail-card h3 {
-    color: #007bff;
-    margin-bottom: 1rem;
-}
-
-/* Estilos para a Página de Preços */
 .pricing-table {
     width: 100%;
-    max-width: 900px;
-    margin: 2rem auto;
     border-collapse: collapse;
-    background: #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    min-width: 600px; /* Evita que a tabela quebre em telas muito pequenas */
 }
 
 .pricing-table th, .pricing-table td {
     padding: 1rem;
-    border: 1px solid #ddd;
     text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
 .pricing-table th {
-    background-color: #007bff;
-    color: white;
+    background-color: #f2f2f2;
 }
 
-.pricing-table tr:nth-child(even) {
-    background-color: #f9f9f9;
+/* --- Media Queries para Telas Maiores (Tablets e Desktops) --- */
+
+/* Tablets (768px e acima) */
+@media (min-width: 768px) {
+    h1 {
+        font-size: 2.8rem;
+    }
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    .hamburger {
+        display: none; /* Esconde o hamburger em telas maiores */
+    }
+
+    .nav-menu {
+        display: flex; /* Mostra o menu normal */
+        flex-direction: row;
+        width: auto;
+        margin-top: 0;
+    }
+
+    .nav-menu li {
+        padding: 0 1rem;
+    }
+
+    .hero-content {
+        padding: 0 2rem;
+    }
+
+    .modal-content {
+        margin: 10% auto !important;
+    }
 }
 
-/* Estilos para a Página de Depoimentos */
-.testimonials-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
+/* Desktops (1024px e acima) */
+@media (min-width: 1024px) {
+    main {
+        padding: 2rem;
+    }
+
+    section {
+        padding: 3rem 2.5rem;
+    }
 }
 
-.testimonial-card {
-    background: #fff;
-    padding: 2rem;
-    border-left: 5px solid #007bff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: left;
-}
-
-.testimonial-card blockquote {
-    font-style: italic;
-    margin-bottom: 1rem;
-    border: none;
-    padding: 0;
-}
-
-.testimonial-card .author {
-    font-weight: bold;
-    color: #555;
-}
-
-/* Estilos para a Página do Blog */
-.blog-post-card {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: left;
-    max-width: 800px;
-    margin: 0 auto 2rem auto;
+/* Modal - Ajuste para não cobrir a tela toda em mobile */
+.modal-content {
+    width: 90% !important;
+    margin: 20% auto !important;
 }
