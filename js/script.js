@@ -1,5 +1,4 @@
 /* global html2canvas */
-// A linha acima informa ao editor que 'html2canvas' é uma variável global definida em outro lugar.
 
 document.addEventListener('DOMContentLoaded', function() {
     // --- CÓDIGO EXISTENTE ---
