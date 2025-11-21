@@ -18,6 +18,11 @@
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="contato.html">Contato</a></li>
             </ul>
+            <button class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </nav>
     </header>
 
@@ -26,54 +31,76 @@
             <h2>Tabela de Preços</h2>
             <p class="section-description" style="max-width: 800px; margin: -1rem auto 3rem auto;">Oferecemos preços transparentes para nossos serviços mais comuns. Para problemas complexos, solicite um orçamento personalizado.</p>
 
-            <table class="pricing-table">
-                <thead>
-                    <tr>
-                        <th>Serviço</th>
-                        <th>Descrição</th>
-                        <th>Preço (a partir de)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Diagnóstico</td>
-                        <td>Análise completa de hardware e software para identificar problemas.</td>
-                        <td>R$ 50,00</td>
-                    </tr>
-                    <tr>
-                        <td>Formatação com Backup</td>
-                        <td>Instalação do sistema operacional e backup de até 50GB de arquivos.</td>
-                        <td>R$ 150,00</td>
-                    </tr>
-                    <tr>
-                        <td>Limpeza Preventiva</td>
-                        <td>Limpeza interna de componentes e troca de pasta térmica.</td>
-                        <td>R$ 120,00</td>
-                    </tr>
-                    <tr>
-                        <td>Remoção de Vírus</td>
-                        <td>Verificação e remoção completa de malwares.</td>
-                        <td>R$ 100,00</td>
-                    </tr>
-                    <tr>
-                        <td>Pacote Otimização Total</td>
-                        <td>Limpeza Preventiva + Formatação com Backup.</td>
-                        <td>R$ 250,00</td>
-                    </tr>
-                </tbody>
-            </table>
+            <!-- Botão para Gerar Imagem -->
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <button id="gerar-post-btn" class="btn">Gerar Post para Redes Sociais</button>
+            </div>
+
+            <div class="table-container">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Serviço</th>
+                            <th>Descrição</th>
+                            <th>Preço (a partir de)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Diagnóstico</td>
+                            <td>Análise completa de hardware e software para identificar problemas.</td>
+                            <td>R$ 50,00</td>
+                        </tr>
+                        <tr>
+                            <td>Formatação com Backup</td>
+                            <td>Instalação do sistema operacional e backup de até 50GB de arquivos.</td>
+                            <td>R$ 150,00</td>
+                        </tr>
+                        <tr>
+                            <td>Limpeza Preventiva</td>
+                            <td>Limpeza interna de componentes e troca de pasta térmica.</td>
+                            <td>R$ 120,00</td>
+                        </tr>
+                        <tr>
+                            <td>Remoção de Vírus</td>
+                            <td>Verificação e remoção completa de malwares.</td>
+                            <td>R$ 100,00</td>
+                        </tr>
+                        <tr>
+                            <td>Pacote Otimização Total</td>
+                            <td>Limpeza Preventiva + Formatação com Backup.</td>
+                            <td>R$ 250,00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
             <div style="margin-top: 2rem;">
                 <p>Para substituição de peças e outros reparos, <a href="contato.html">solicite um orçamento gratuito</a>.</p>
                 <a href="contato.html" class="btn">Solicitar Orçamento Personalizado</a>
             </div>
         </section>
+
+        <!-- Modal para exibir a imagem gerada -->
+        <div id="post-modal" class="modal" style="display:none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.7);">
+            <div class="modal-content" style="background-color: #fefefe; margin: 10% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 600px; text-align: center; border-radius: 8px;">
+                <span class="close" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+                <h3>Post Gerado</h3>
+                <p>Clique com o botão direito na imagem para salvar ou arraste para seus arquivos.</p>
+                <div id="post-container" style="border: 1px solid #ddd; padding: 10px; margin-top: 15px; background: #f9f9f9;">
+                    <!-- A imagem gerada será inserida aqui -->
+                </div>
+                <a id="download-btn" class="btn" style="margin-top: 20px; display: none;">Baixar Imagem</a>
+            </div>
+        </div>
     </main>
 
     <footer>
         <p>&copy; 2025 TechFix. Todos os direitos reservados.</p>
     </footer>
 
+    <!-- Biblioteca para gerar a imagem -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
