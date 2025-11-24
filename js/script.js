@@ -1,10 +1,9 @@
 /* global html2canvas */
 
+// Executa o script quando o conteúdo do DOM estiver totalmente carregado
 document.addEventListener('DOMContentLoaded', function() {
-    // --- CÓDIGO EXISTENTE ---
-
-    // --- Lógica para o Menu Hamburger ---
-    const hamburger = document.querySelector('.hamburger');
+    // --- LÓGICA PARA O MENU HAMBURGER (MOBILE) ---
+    const hamburger = document.querySelector('.hamburger'); // Seleciona o botão
     const navMenu = document.querySelector('.nav-menu');
 
     if (hamburger && navMenu) {
@@ -13,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Efeito suave de rolagem para links âncora
+    // --- EFEITO SUAVE DE ROLAGEM PARA LINKS ÂNCORA ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -23,9 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- NOVO CÓDIGO PARA GERAR POST ---
-
-    // Verifica se os elementos do gerador de post existem na página atual
+    // --- FUNCIONALIDADE DO GERADOR DE POST (PÁGINA DE PREÇOS) ---
+    // Verifica se os elementos do gerador de post existem na página atual para evitar erros
     const gerarPostBtn = document.getElementById('gerar-post-btn');
     const modal = document.getElementById('post-modal');
     
@@ -34,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const postContainer = document.getElementById('post-container');
         const downloadBtn = document.getElementById('download-btn');
 
-        // Função para abrir o modal e gerar a imagem
+        // Adiciona o evento de clique ao botão para gerar a imagem
         gerarPostBtn.addEventListener('click', function() {
             gerarPostBtn.textContent = 'Gerando imagem...';
             gerarPostBtn.disabled = true;
@@ -68,12 +66,13 @@ document.addEventListener('DOMContentLoaded', function() {
             captureArea.appendChild(tabela.cloneNode(true)); // Clona a tabela
             document.body.appendChild(captureArea);
 
-            // Usa a biblioteca html2canvas para "fotografar" a área de captura
+            // Usa a biblioteca html2canvas para "fotografar" a área de captura e transformar em um canvas
             html2canvas(captureArea, { scale: 2, useCORS: true, backgroundColor: '#ffffff' }).then(canvas => {
                 postContainer.innerHTML = '';
                 canvas.style.maxWidth = '100%';
                 postContainer.appendChild(canvas);
 
+                // Cria o link de download para a imagem gerada
                 downloadBtn.href = canvas.toDataURL('image/png');
                 downloadBtn.download = 'tabela-precos-lima-lima-manutencao.png';
                 downloadBtn.style.display = 'inline-block';
@@ -86,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Funções para fechar o modal
+        // Adiciona eventos para fechar o modal (clicando no 'X' ou fora da área do modal)
         closeModal.addEventListener('click', () => { modal.style.display = 'none'; });
         window.addEventListener('click', (event) => {
             if (event.target == modal) {

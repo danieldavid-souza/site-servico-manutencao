@@ -1,4 +1,4 @@
-/* Estilos Globais e Mobile First */
+/* === ESTILOS GLOBAIS E MOBILE FIRST === */
 :root {
     --primary-color: #2c3e50; /* Azul escuro */
     --secondary-color: #3498db; /* Azul claro */
@@ -8,12 +8,14 @@
     --border-radius: 8px;
 }
 
+/* Reset básico e configuração da caixa de modelo */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Estilos base para o corpo da página */
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
@@ -24,11 +26,24 @@ body {
     min-height: 100vh;
 }
 
+/* Estilo da imagem de perfil/logo na seção hero */
+.profile-picture {
+  width: 120px; /* Largura da imagem */
+  height: 120px; /* Altura da imagem */
+  border-radius: 50%; /* Torna a imagem redonda */
+  object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+  border: 4px solid #fff; /* Borda branca ao redor da imagem */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  margin-bottom: 15px; /* Margem inferior */
+}
+
+/* Garante que o conteúdo principal ocupe o espaço disponível */
 main {
     flex-grow: 1;
     padding: 1rem;
 }
 
+/* Estilo padrão para as seções de conteúdo */
 section {
     background: var(--white-color);
     margin: 1rem auto;
@@ -38,6 +53,7 @@ section {
     max-width: 1200px;
 }
 
+/* Estilo padrão para títulos de seção (H2) */
 h2 {
     text-align: center;
     color: var(--primary-color);
@@ -45,6 +61,7 @@ h2 {
     font-size: 2rem;
 }
 
+/* Estilo para parágrafos de descrição abaixo dos títulos */
 .section-description {
     text-align: center;
     max-width: 800px;
@@ -52,7 +69,7 @@ h2 {
     color: #555;
 }
 
-/* Header e Navegação */
+/* === HEADER E NAVEGAÇÃO === */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -78,6 +95,7 @@ h2 {
     margin-top: 1rem;
 }
 
+/* Modificador para exibir o menu em modo mobile quando ativo */
 .nav-menu.active {
     display: flex; /* Mostra o menu quando a classe 'active' é adicionada via JS */
 }
@@ -97,6 +115,7 @@ h2 {
     color: var(--secondary-color);
 }
 
+/* Botão Hamburger para navegação mobile */
 .hamburger {
     display: block; /* Visível por padrão em mobile */
     cursor: pointer;
@@ -104,6 +123,7 @@ h2 {
     border: none;
 }
 
+/* Barras dentro do botão hamburger */
 .hamburger .bar {
     display: block;
     width: 25px;
@@ -113,7 +133,7 @@ h2 {
     transition: all 0.3s ease-in-out;
 }
 
-/* Botões */
+/* === COMPONENTES GERAIS === */
 .btn {
     display: inline-block;
     background-color: var(--secondary-color);
@@ -132,7 +152,7 @@ h2 {
     background-color: #2980b9;
 }
 
-/* Hero Section */
+/* Seção de Destaque (Hero) */
 .hero {
     text-align: center;
     padding: 3rem 1rem;
@@ -141,7 +161,7 @@ h2 {
     margin-bottom: 0.5rem;
 }
 
-/* Cards de Serviço */
+/* Container para os cards de serviço */
 .services-container {
     display: flex;
     flex-wrap: wrap;
@@ -149,6 +169,7 @@ h2 {
     justify-content: center;
 }
 
+/* Estilo individual dos cards de serviço */
 .service-card {
     background: #fff;
     padding: 1.5rem;
@@ -159,7 +180,7 @@ h2 {
     max-width: 350px;
 }
 
-/* Formulário de Contato */
+/* Seção e formulário de contato */
 .contact-form-section form {
     display: flex;
     flex-direction: column;
@@ -178,7 +199,7 @@ h2 {
     font-size: 1rem;
 }
 
-/* Footer */
+/* Rodapé */
 footer {
     background-color: var(--primary-color);
     color: var(--white-color);
@@ -187,12 +208,14 @@ footer {
     margin-top: auto;
 }
 
-/* Tabela de Preços Responsiva */
+/* === PÁGINA DE PREÇOS === */
+/* Container da tabela para permitir rolagem em telas pequenas */
 .table-container {
     overflow-x: auto; /* Permite rolagem horizontal em telas pequenas */
     margin: 2rem 0;
 }
 
+/* Estilo base da tabela de preços */
 .pricing-table {
     width: 100%;
     border-collapse: collapse;
@@ -209,7 +232,7 @@ footer {
     background-color: #f2f2f2;
 }
 
-/* --- Estilos para Tabela de Preços Responsiva (Mobile) --- */
+/* Estilos para Tabela de Preços Responsiva (Mobile) */
 @media (max-width: 767px) {
     .table-container {
         overflow-x: hidden; /* Remove a barra de rolagem */
@@ -250,9 +273,8 @@ footer {
     }
 }
 
-/* --- Media Queries para Telas Maiores (Tablets e Desktops) --- */
-
-/* Tablets (768px e acima) */
+/* === MEDIA QUERIES PARA RESPONSIVIDADE === */
+/* Tablets (768px e acima) - Ajustes de fonte e navegação */
 @media (min-width: 768px) {
     h1 {
         font-size: 2.8rem;
@@ -285,7 +307,7 @@ footer {
     }
 }
 
-/* Desktops (1024px e acima) */
+/* Desktops (1024px e acima) - Ajustes de espaçamento */
 @media (min-width: 1024px) {
     main {
         padding: 2rem;
@@ -296,13 +318,11 @@ footer {
     }
 }
 
-/* Modal - Ajuste para não cobrir a tela toda em mobile */
+/* Ajuste do Modal para não cobrir a tela toda em mobile */
 .modal-content {
     width: 90% !important;
     margin: 20% auto !important;
 }
-
-/* === Estilos Adicionais Solicitados === */
 
 /* Estilo para o botão flutuante do WhatsApp */
 .whatsapp-float {
@@ -384,8 +404,7 @@ footer {
     text-decoration: underline;
 }
 
-/* === Estilos para a Página de Serviços === */
-
+/* === PÁGINA DE SERVIÇOS === */
 .services-grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
