@@ -19,6 +19,7 @@ O projeto consiste em um site estático de várias páginas, construído com HTM
   - **Contato**: Informações de contato e um formulário para agendamentos ou orçamentos.
 - **Botão Flutuante do WhatsApp**: Acesso rápido para contato direto via WhatsApp.
 - **Gerador de Post para Redes Sociais**: Na página de preços, há um botão que gera uma imagem da tabela de preços, pronta para ser compartilhada em redes sociais como Instagram ou Facebook.
+- **Compartilhamento Social**: Botão na página inicial que permite compartilhar o link do site via WhatsApp, Telegram ou copiando o link.
 
 ## Estrutura de Arquivos e Pastas
 
@@ -53,6 +54,7 @@ g:/portifilio/site-servico-manutencao/
   - **Menu Hamburger**: Controla a exibição do menu de navegação em dispositivos móveis.
   - **Rolagem Suave**: Melhora a experiência de navegação para links internos.
   - **Gerador de Post**: Utiliza a biblioteca `html2canvas` para capturar a tabela de preços e transformá-la em uma imagem PNG, que pode ser baixada pelo usuário.
+  - **Menu de Compartilhamento**: Controla a exibição de um menu para compartilhar o site.
 
 ## Tecnologias Utilizadas
 
@@ -74,6 +76,32 @@ Você poderá navegar por todas as páginas e testar todas as funcionalidades di
 ## Boas Práticas e Comentários
 
 Todo o código (HTML, CSS e JS) foi comentado para explicar a função de cada bloco. Isso segue as boas práticas de desenvolvimento, tornando o código mais legível e fácil de manter ou modificar no futuro.
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT. Veja o texto da licença abaixo:
+
+**MIT License**
+
+Copyright (c) 2025 [Daniel David Lima Lima Manutenção]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 ---
 *Este projeto foi desenvolvido como um portfólio de desenvolvimento web, demonstrando habilidades em front-end.*
