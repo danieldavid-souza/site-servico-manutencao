@@ -97,28 +97,44 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- FUNCIONALIDADE DO BOTÃO COMPARTILHAR (PÁGINA INICIAL) ---
     const shareBtn = document.getElementById('share-btn');
 
-    if (shareBtn) {
-        shareBtn.addEventListener('click', async () => {
-            // Dados a serem compartilhados
-            const shareData = {
-                title: 'Lima Lima Manutenção',
-                text: 'Conheça os serviços de manutenção de computadores da Lima Lima Manutenção. Soluções rápidas e eficientes para o seu equipamento!',
-                url: window.location.href // Pega a URL atual da página
-            };
+    if (shareBtn) { // Verifica se o botão existe
+        const shareMenu = document.getElementById('share-menu');
+        const message = encodeURIComponent('Conheça os serviços de manutenção de computadores da Lima Lima Manutenção. Soluções rápidas e eficientes para o seu equipamento! ' + window.location.href);
 
+        // Cria os links de compartilhamento dinamicamente
+        shareMenu.innerHTML = `
+            <a href="https://api.whatsapp.com/send?text=${message}" target="_blank">WhatsApp</a>
+            <a href="https://t.me/share/url?url=${window.location.href}&text=${message}" target="_blank">Telegram</a>
+            <a href="#" id="copy-link-btn">Copiar Link</a>
+        `;
+
+        // Adiciona o evento de clique ao botão principal
+        shareBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Impede que o clique feche o menu imediatamente
+            shareMenu.style.display = shareMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Lógica para o botão "Copiar Link"
+        const copyLinkBtn = document.getElementById('copy-link-btn');
+        copyLinkBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
             try {
-                // Verifica se o navegador suporta a API de Compartilhamento Web
-                if (navigator.share) {
-                    await navigator.share(shareData);
-                } else {
-                    // Fallback para navegadores que não suportam: copiar para a área de transferência
-                    await navigator.clipboard.writeText(shareData.url);
-                    shareBtn.textContent = 'Link Copiado!';
-                    setTimeout(() => {
-                        shareBtn.textContent = 'Compartilhar';
-                    }, 2000); // Volta ao texto original após 2 segundos
-                }
-            } catch (err) { }
+                await navigator.clipboard.writeText(window.location.href);
+                copyLinkBtn.textContent = 'Copiado!';
+                setTimeout(() => {
+                    copyLinkBtn.textContent = 'Copiar Link';
+                    shareMenu.style.display = 'none'; // Esconde o menu após copiar
+                }, 1500);
+            } catch (err) {
+                copyLinkBtn.textContent = 'Erro ao copiar';
+            }
+        });
+
+        // Fecha o menu se o usuário clicar em qualquer outro lugar da página
+        document.addEventListener('click', (e) => {
+            if (e.target !== shareBtn && e.target !== shareMenu) {
+                shareMenu.style.display = 'none';
+            }
         });
     }
 });

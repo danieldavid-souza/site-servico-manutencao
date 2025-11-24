@@ -457,3 +457,38 @@ footer {
     text-align: left;
     align-items: center;
 }
+
+/* === ESTILOS PARA O BOTÃO E MENU DE COMPARTILHAMENTO === */
+/* Contêiner para posicionar o menu relativo ao botão */
+.share-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Estilo do menu dropdown de compartilhamento */
+.share-menu {
+    display: none; /* Começa escondido */
+    position: absolute;
+    bottom: 100%; /* Posiciona acima do botão */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 10;
+    margin-bottom: 10px; /* Espaço entre o menu e o botão */
+    width: max-content; /* Largura baseada no conteúdo */
+}
+
+/* Estilo dos links dentro do menu de compartilhamento */
+.share-menu a {
+    color: var(--primary-color);
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s;
+}
+
+.share-menu a:hover {
+    background-color: #f0f0f0;
+}
