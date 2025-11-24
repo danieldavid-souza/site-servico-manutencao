@@ -93,4 +93,32 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // --- FUNCIONALIDADE DO BOTÃO COMPARTILHAR (PÁGINA INICIAL) ---
+    const shareBtn = document.getElementById('share-btn');
+
+    if (shareBtn) {
+        shareBtn.addEventListener('click', async () => {
+            // Dados a serem compartilhados
+            const shareData = {
+                title: 'Lima Lima Manutenção',
+                text: 'Conheça os serviços de manutenção de computadores da Lima Lima Manutenção. Soluções rápidas e eficientes para o seu equipamento!',
+                url: window.location.href // Pega a URL atual da página
+            };
+
+            try {
+                // Verifica se o navegador suporta a API de Compartilhamento Web
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                } else {
+                    // Fallback para navegadores que não suportam: copiar para a área de transferência
+                    await navigator.clipboard.writeText(shareData.url);
+                    shareBtn.textContent = 'Link Copiado!';
+                    setTimeout(() => {
+                        shareBtn.textContent = 'Compartilhar';
+                    }, 2000); // Volta ao texto original após 2 segundos
+                }
+            } catch (err) { }
+        });
+    }
 });
