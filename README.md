@@ -19,6 +19,7 @@ O projeto consiste em um site estático de várias páginas, construído com HTM
   - **Contato**: Informações de contato e um formulário para agendamentos ou orçamentos.
 - **Botão Flutuante do WhatsApp**: Acesso rápido para contato direto via WhatsApp.
 - **Gerador de Post para Redes Sociais**: Na página de preços, há um botão que gera uma imagem da tabela de preços, pronta para ser compartilhada em redes sociais como Instagram ou Facebook.
+- **Navegação Ativa**: O link da página atual é destacado no menu para melhor orientação do usuário.
 - **Compartilhamento Social**: Botão na página inicial que permite compartilhar o link do site via WhatsApp, Telegram ou copiando o link.
 
 ## Estrutura de Arquivos e Pastas
@@ -31,6 +32,8 @@ g:/portifilio/site-servico-manutencao/
 │   └── style.css           # Folha de estilo principal com todo o CSS do projeto.
 ├── img/
 │   └── logo2.png           # Arquivo de imagem da logo.
+│   └── instagram.svg       # Ícone da rede social Instagram.
+│   └── facebook.svg        # Ícone da rede social Facebook.
 ├── js/
 │   ├── form-handler.js     # Script para lidar com o envio de formulários (se houver integração).
 │   └── script.js           # Script principal para interatividades (menu, gerador de post, etc.).
@@ -50,6 +53,7 @@ g:/portifilio/site-servico-manutencao/
 
 - **`*.html`**: Cada arquivo HTML representa uma página do site. A estrutura semântica do HTML5 foi utilizada para melhor acessibilidade e SEO.
 - **`css/style.css`**: Contém todos os estilos do site. Utiliza variáveis CSS (`:root`) para fácil customização de cores e padrões. A abordagem é "mobile-first", com `media queries` para adaptar o layout a telas maiores.
+- **`js/form-handler.js`**: Script dedicado ao processamento de formulários, proporcionando feedback ao usuário sem recarregar a página.
 - **`js/script.js`**: Responsável pela interatividade do site.
   - **Menu Hamburger**: Controla a exibição do menu de navegação em dispositivos móveis.
   - **Rolagem Suave**: Melhora a experiência de navegação para links internos.
@@ -76,6 +80,14 @@ Você poderá navegar por todas as páginas e testar todas as funcionalidades di
 ## Boas Práticas e Comentários
 
 Todo o código (HTML, CSS e JS) foi comentado para explicar a função de cada bloco. Isso segue as boas práticas de desenvolvimento, tornando o código mais legível e fácil de manter ou modificar no futuro.
+
+## Próximos Passos e Sugestões de Melhorias
+
+- **Otimização de Imagens**: Comprimir as imagens (`.png`, `.jpg`) para reduzir o tempo de carregamento das páginas.
+- **Animações Sutis**: Adicionar transições e animações sutis em elementos como cards de serviço e posts do blog para tornar a interface mais dinâmica.
+- **Validação de Formulário**: Implementar validação de campos em tempo real nos formulários de contato.
+- **Integração com Backend**: Integrar os formulários com um serviço como Netlify Forms, Formspree ou um backend próprio para receber as mensagens dos clientes diretamente no e-mail.
+- **Acessibilidade (a11y)**: Realizar uma auditoria de acessibilidade para garantir que o site seja utilizável por todas as pessoas, incluindo aquelas que utilizam leitores de tela.
 
 ## Licença
 
