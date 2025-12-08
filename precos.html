@@ -2,28 +2,37 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechFix - Manutenção de Computadores e Notebooks</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="description" content="Tabela de preços para serviços de manutenção de computadores, formatação, limpeza e mais em Juiz de Fora.">
+    <title>Preços - Lima Lima Manutenção</title>
+    <link rel="stylesheet" href="css/style.css"> 
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <a href="index.html" class="logo">Lima Lima Manutenção</a>
-            <ul class="nav-menu">
-                <li><a href="index.html">Início</a></li>
-                <li><a href="servicos.html">Serviços</a></li>
-                <li><a href="precos.html">Preços</a></li>
-                <li><a href="depoimentos.html">Depoimentos</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contato.html">Contato</a></li>
-            </ul>
+        <div class="navbar">
+            <!-- Logo de Texto -->
+            <a href="index.html" class="logo">Lima Lima Manutenção</a> 
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="servicos.html">Serviços</a></li>
+                    <li><a href="precos.html">Preços</a></li>
+                    <li><a href="depoimentos.html">Depoimentos</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle-btn" aria-label="Mudar tema">
+                <span class="sun">☀️</span>
+                <span class="moon">🌙</span>
+            </button>
+            <!-- Botão Hamburger para Menu Mobile -->
             <button class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
-        </nav>
+        </div>
     </header>
 
     <main>
@@ -83,15 +92,21 @@
         </section>
 
         <!-- Modal para exibir a imagem gerada -->
-        <div id="post-modal" class="post-modal">
-            <div class="post-modal-content">
-                <span class="close">&times;</span>
-                <h3>Post Gerado</h3>
-                <p>Clique com o botão direito na imagem para salvar ou arraste para seus arquivos.</p>
-                <div id="post-container" style="border: 1px solid #ddd; padding: 10px; margin-top: 15px; background: #f9f9f9;">
-                    <!-- A imagem gerada será inserida aqui -->
+        <div id="post-modal" class="modal-overlay">
+            <div class="modal-content">
+                <button class="modal-close-btn close">&times;</button>
+                <div class="modal-header">
+                    <h3>Post Gerado</h3>
                 </div>
-                <a id="download-btn" class="btn" style="margin-top: 20px; display: none;">Baixar Imagem</a>
+                <div class="modal-body">
+                    <p>Clique com o botão direito na imagem para salvar ou arraste para seus arquivos.</p>
+                    <div id="post-container" style="border: 1px solid var(--border-color); padding: 10px; margin-top: 15px; background: var(--bg-primary);">
+                        <!-- A imagem gerada será inserida aqui -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a id="download-btn" class="btn" style="display: none;">Baixar Imagem</a>
+                </div>
             </div>
         </div>
     </main>
