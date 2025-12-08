@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
         floatButton.addEventListener('click', () => {
             openModal(
                 '5532991992905', // Número de telefone
-                'Olá! Gostaria de saber mais sobre seus serviços.', // Mensagem padrão
+                'Olá, Daniel! Gostaria de mais informações sobre os serviços de manutenção da Lima Lima.', // Mensagem padrão
                 'Fale com a Lima Lima Manutenção' // Nome de contato
             );
         });
